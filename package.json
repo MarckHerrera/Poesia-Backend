@@ -1,0 +1,19 @@
+{
+  "name": "poesia-react-entrevista",
+  "version": "1.0.0",
+  "description": "Control de poesia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarckHerrera/Poesia-React-Entrevista.git"
+  },
+  "author": "Marck Herrera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarckHerrera/Poesia-React-Entrevista/issues"
+  },
+  "homepage": "https://github.com/MarckHerrera/Poesia-React-Entrevista#readme"
+}
