@@ -13,7 +13,7 @@ function agregarFicha(req, res) {
             if (nombreEncontrado.length > 0) {
                 return res.status(500).send({ mensaje: "Ya Existe este estudiante" });
             } else {
-                
+
                 Ficha.find({ carnet: parametros.carnet }, (err, carnetEncontrado) => {
                     if (carnetEncontrado.length > 0) {
                         return res.status(500).send({ mensaje: "Carnet ya utilizado" });
@@ -176,11 +176,25 @@ function agregarFicha(req, res) {
 
 function verFichas(req, res) {
     Ficha.find({}, (err, fichas) => {
-        return res.status(200).send( fichas )
+        return res.status(200).send(fichas)
     })
 }
 
+function eliminarFichas(req, res) {
+    var idFicha = req.params.idFicha
+
+    Ficha.findByIdAndDelete(idFicha, (err, fichaEliminada) => {
+        if (err) return res.status(500).send({ mensaje: "Error en la peticion de eliminar Ficha" });
+        if (!fichaEliminada)
+          return res.status(500).send({ mensaje: "Error al eliminar la Ficha" });
+    
+        return res.status(200).send({ ficha: fichaEliminada });
+    })
+}
+
+
 module.exports = {
     agregarFicha,
-    verFichas
+    verFichas,
+    eliminarFichas
 };
