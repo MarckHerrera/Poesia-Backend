@@ -13,7 +13,7 @@ function agregarFicha(req, res) {
             if (nombreEncontrado.length > 0) {
                 return res.status(500).send({ mensaje: "Ya Existe este estudiante" });
             } else {
-
+                
                 Ficha.find({ carnet: parametros.carnet }, (err, carnetEncontrado) => {
                     if (carnetEncontrado.length > 0) {
                         return res.status(500).send({ mensaje: "Carnet ya utilizado" });
@@ -169,14 +169,14 @@ function agregarFicha(req, res) {
         }
         )
     } else {
-        return res.status(500).send({ mensaje: "Debe enviar los parametros obligatorios" })
+        return res.status(00).send({ mensaje: "Debe enviar los parametros obligatorios" })
     }
 
 }
 
 function verFichas(req, res) {
     Ficha.find({}, (err, fichas) => {
-        return res.status(200).send({ fichas: fichas })
+        return res.status(200).send( fichas )
     })
 }
 
